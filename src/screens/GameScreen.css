@@ -1,0 +1,158 @@
+.game-screen { padding-top: 16px; }
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.back-btn {
+  padding: 8px 14px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--ink-muted);
+  transition: all 0.12s;
+}
+.back-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.q-count { font-size: 0.9rem; font-weight: 700; color: var(--ink-muted); }
+
+.progress-bar-wrap {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.unit-label-small {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.japanese-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.japanese-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.answer-area {
+  min-height: 72px;
+  background: var(--surface);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+.answer-area.correct-area { border-color: var(--green); border-style: solid; background: var(--green-light); }
+.answer-area.wrong-area { border-color: var(--red); border-style: solid; background: var(--red-light); }
+
+.answer-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.placeholder { color: var(--ink-muted); font-size: 0.9rem; }
+
+.chip {
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.12s;
+  font-family: 'Outfit', sans-serif;
+}
+.selected-chip {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(37,99,235,0.3);
+}
+.selected-chip:hover:not(:disabled) { background: #1d4ed8; transform: translateY(-1px); }
+.chip-correct { background: var(--green) !important; }
+.chip-wrong { background: var(--red) !important; }
+.pool-chip {
+  background: var(--surface2);
+  color: var(--ink);
+  border: 1.5px solid var(--border);
+}
+.pool-chip:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.pool-chip:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.feedback {
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  animation: popIn 0.2s ease;
+}
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0.5; }
+  to { transform: scale(1); opacity: 1; }
+}
+.feedback-correct { background: var(--green-light); border: 1.5px solid var(--green); }
+.feedback-wrong { background: var(--red-light); border: 1.5px solid var(--red); }
+.feedback-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 600;
+}
+.feedback-icon { font-size: 1.4rem; }
+.feedback-correct .feedback-content { color: var(--green); }
+.feedback-wrong .feedback-content { color: var(--red); }
+.correct-sentence { font-size: 0.9rem; font-weight: 400; margin-top: 2px; }
+
+.word-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px;
+  background: var(--surface2);
+  border-radius: var(--radius);
+  min-height: 60px;
+  margin-bottom: 16px;
+}
+
+.game-actions { padding-bottom: 24px; }
+.check-btn, .next-btn {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.check-btn { background: var(--accent); color: #fff; }
+.check-btn:hover:not(:disabled) { background: #1d4ed8; transform: translateY(-1px); }
+.check-btn:disabled { background: var(--border); color: var(--ink-muted); cursor: not-allowed; }
+.next-btn { background: var(--green); color: #fff; }
+.next-btn:hover { background: #15803d; transform: translateY(-1px); }

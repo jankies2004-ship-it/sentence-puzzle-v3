@@ -156,3 +156,160 @@
 .check-btn:disabled { background: var(--border); color: var(--ink-muted); cursor: not-allowed; }
 .next-btn { background: var(--green); color: #fff; }
 .next-btn:hover { background: #15803d; transform: translateY(-1px); }
+
+/* 解説ボックス */
+.feedback-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 0;
+}
+.feedback-main { flex: 1; }
+.feedback-label { font-size: 1rem; font-weight: 700; }
+.correct-sentence { font-size: 0.88rem; font-weight: 500; margin-top: 4px; }
+.correct-label { font-weight: 700; margin-right: 4px; }
+
+.explanation-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.feedback-correct .explanation-box { border-top-color: rgba(22,163,74,0.2); }
+.feedback-wrong .explanation-box { border-top-color: rgba(220,38,38,0.2); }
+.explanation-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+.explanation-text {
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.feedback-correct .explanation-text { color: #15803d; }
+.feedback-wrong .explanation-text { color: #991b1b; }
+
+/* 句読点チップ */
+.punct-chip {
+  min-width: 36px !important;
+  padding: 8px 10px !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0;
+}
+
+/* 発音ボタン */
+.speak-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  background: transparent;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  margin-left: auto;
+}
+.feedback-correct .speak-btn {
+  color: var(--green);
+  border-color: var(--green);
+}
+.feedback-wrong .speak-btn {
+  color: var(--red);
+  border-color: var(--red);
+}
+.speak-btn:hover {
+  opacity: 0.75;
+  transform: scale(1.08);
+}
+.speak-btn.speaking {
+  animation: pulse 0.6s infinite alternate;
+}
+@keyframes pulse {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0.6; transform: scale(1.12); }
+}
+
+/* ヘッダー右側 */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hint-badge {
+  font-size: 0.72rem;
+  background: #fef3c7;
+  color: #92400e;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* ヒントで確定したチップ */
+.hint-locked {
+  background: #7c3aed !important;
+  border-color: #7c3aed !important;
+  color: #fff !important;
+  position: relative;
+  cursor: not-allowed !important;
+}
+.lock-icon {
+  font-size: 0.65rem;
+  margin-left: 3px;
+  vertical-align: middle;
+}
+
+/* ヒントフラッシュアニメ */
+.hint-flash {
+  animation: hintPop 0.8s ease;
+}
+@keyframes hintPop {
+  0%   { transform: scale(1); background: #fbbf24; }
+  30%  { transform: scale(1.2); background: #f59e0b; }
+  100% { transform: scale(1); }
+}
+
+/* ヒントマーク（正解・不正解表示内） */
+.hint-mark {
+  font-size: 0.78rem;
+  background: #ede9fe;
+  color: #7c3aed;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+/* アクション行（ヒント＋答え合わせ） */
+.action-row {
+  display: flex;
+  gap: 10px;
+}
+.hint-btn {
+  flex: 0 0 auto;
+  padding: 18px 20px;
+  border: 2px solid #7c3aed;
+  background: #fff;
+  color: #7c3aed;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.hint-btn:hover:not(:disabled) {
+  background: #ede9fe;
+}
+.hint-btn:disabled {
+  border-color: var(--border);
+  color: var(--ink-muted);
+  cursor: not-allowed;
+}
+.action-row .check-btn {
+  flex: 1;
+}

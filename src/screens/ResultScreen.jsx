@@ -3,6 +3,7 @@ import './ResultScreen.css'
 export default function ResultScreen({ result, unitLabel, onRetry, onBack }) {
   const { score, total, answers } = result
   const pct = Math.round((score / total) * 100)
+  const hintCount = answers.filter(a => a.usedHint).length
   const msg = pct === 100 ? '🏆 パーフェクト！' : pct >= 80 ? '🎉 すばらしい！' : pct >= 60 ? '👍 よくできました！' : '💪 もう一度チャレンジ！'
 
   return (
@@ -14,6 +15,9 @@ export default function ResultScreen({ result, unitLabel, onRetry, onBack }) {
           <div className="score-total">/ {total}</div>
         </div>
         <div className="score-pct">{pct}%正解</div>
+        {hintCount > 0 && (
+          <div className="hint-count-badge">💡 ヒント使用：{hintCount}問</div>
+        )}
         <div className="result-unit">{unitLabel}</div>
       </div>
 
@@ -29,6 +33,7 @@ export default function ResultScreen({ result, unitLabel, onRetry, onBack }) {
             <div className="review-header">
               <span className="review-icon">{a.correct ? '✅' : '❌'}</span>
               <span className="review-japanese">{a.question.japanese}</span>
+              {a.usedHint && <span className="review-hint-mark">💡</span>}
             </div>
             {!a.correct && (
               <div className="review-answers">

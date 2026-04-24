@@ -64,3 +64,21 @@
 .your-answer { font-size: 0.85rem; color: var(--red); }
 .correct-answer { font-size: 0.85rem; color: var(--green); font-weight: 600; }
 .answer-label { font-size: 0.8rem; font-weight: 700; margin-right: 4px; }
+
+/* ヒント使用数バッジ */
+.hint-count-badge {
+  font-size: 0.82rem;
+  background: #ede9fe;
+  color: #7c3aed;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  margin: 6px 0;
+}
+
+/* 振り返りのヒントマーク */
+.review-hint-mark {
+  font-size: 0.85rem;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
